@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security Приложение</title>
+</head>
+
+<body>
+<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Выйти"/>
+</form>
+<h1>Welcome!</h1>
+
+<h1>Курсы валют</h1>
+
+<table border="5">
+    <tr>
+        <th>num_code</th>
+        <th>char_code</th>
+        <th>nominal</th>
+        <th>name</th>
+        <th>value</th>
+    </tr>
+    <tr th:each="valute : ${valutes}">
+        <td th:utext="${valute.num_code}">num_code</td>
+        <td th:utext="${valute.char_code}">char_code</td>
+        <td th:utext="${valute.nominal}">nominal</td>
+        <td th:utext="${valute.name}">name</td>
+        <td th:utext="${valute.value}">value</td>
+    </tr>
+</table>
+</body>
+</html>

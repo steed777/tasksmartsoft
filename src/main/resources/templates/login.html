@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security Приложение </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row py-2">
+        <div class="col-12">
+            <form th:action="@{/login}" method="post">
+                <div class="form-group">
+                    <label for="username">Логин</label>
+                    <input type="text" class="form-control" id="username" name="username">
+                    <small class="form-text text-danger" th:if="${param.error != null}">Некорректный логин или пароль</small>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Войти</button>
+                <h3><p><a th:href="@{/registration}">Регистрация</a></p></h3>
+</form>
+        </div>
+</div>
+</div>
+
+</body>
+</html>
